@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, uc, k, nrcif = 0, m = 0, p = 1;
+    
+    cin >> n >> k;
+    
+    int copien = n;
+    
+    while(n > 0)
+    {
+        nrcif ++;
+        n = n / 10;
+    }
+    
+    n = copien;
+    
+    while(n > 0)
+    {
+        uc = n % 10;
+        
+        if(nrcif == k)
+        {
+            if(uc == 9)
+            {
+                uc = 0;
+            }
+            else
+            {
+                uc ++;
+            }
+        }
+        
+        m = m + uc * p;
+        
+        nrcif --;
+        p = p * 10;
+        n = n / 10;
+    }
+    
+    cout << m;
+
+    return 0;
+}
